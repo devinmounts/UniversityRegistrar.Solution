@@ -17,6 +17,14 @@ namespace UniversityRegistrar.Controllers
             return View(allStudents);
         }
 
+        [HttpPost("/students")]
+        public ActionResult Index(string name, DateTime enrollment = new DateTime())
+        {
+            Student newStudent = new Student(name, enrollment);
+            newStudent.Save();
+            return RedirectToAction("Index");
+        }
+
         [HttpGet("/students/add")]
         public ActionResult AddForm()
         {
