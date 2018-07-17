@@ -43,5 +43,16 @@ namespace UniversityRegistrar.Controllers
             model.Add("allStudents", allStudents);
             return View(model);
         }
+
+        [HttpPost("courses/{id}")]
+        public ActionResult AddStudent(int id, string student)
+        {
+            
+            Course course = Course.Find(id);
+            Student newStudent = Student.Find(Int32.Parse(student));
+            course.AddStudent(newStudent);
+            
+            return RedirectToAction("Details", new { id = id });
+        }
     }
 }

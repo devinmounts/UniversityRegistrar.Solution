@@ -3,7 +3,7 @@
 
 @using UniversityRegistrar.Models;
 
-<h1>To Do List</h1>
+<h1>University Registrar</h1>
 <h2>Course: @Model["selectedCourse"].Name</h2>
 <hr />
 @if (@Model["courseStudents"].Count != 0)
@@ -17,9 +17,9 @@
   </ul>
 }
 <h4>Add a student to this course:</h4>
-<form action='/courses/@Model["selectedCourse"].Id/students/new' method='post'>
-  <label for='student-id'>Select a Student</label>
-  <select id='student-id' name='student' type='text'>
+<form action='/courses/@Model["selectedCourse"].Id' method='post'>
+  <label for='student'>Select a Student</label>
+  <select id='student' name='student' type='text'>
     @foreach (var student in @Model["allStudents"])
     {
       <option value='@student.Id'>@student.Name</option>

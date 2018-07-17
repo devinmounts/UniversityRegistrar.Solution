@@ -4,13 +4,13 @@
 <h1>Add a new student</h1>
 <form action="/students" method="post">
     <label for="student-name">Student Name:</label>
-    <input id="student-name" name="student-name" type="text">
+    <input id="student-name" name="name" type="text">
     <label for="student-enrollment">EnrollmentDate</label>
     <input id="student-enrollment" name="enrollment" type="date">
     <select name="student-course">
         @foreach(var course in Model)
         {
-            <select value="@course.Id">@course.Name</select>
+            <option value="@course.Id">@course.Name</option>
         }
     </select>
     <button type="submit">Add new Student</button>

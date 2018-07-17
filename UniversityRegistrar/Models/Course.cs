@@ -157,7 +157,7 @@ namespace UniversityRegistrar.Models
             cmd.CommandText = @"INSERT INTO courses_students (course_id, student_id) VALUES (@CourseId, @StudentId);";
 
             MySqlParameter course_id = new MySqlParameter();
-            course_id.ParameterName = "@CityId";
+            course_id.ParameterName = "@CourseId";
             course_id.Value = Id;
             cmd.Parameters.Add(course_id);
 
@@ -181,7 +181,7 @@ namespace UniversityRegistrar.Models
             MySqlCommand cmd = conn.CreateCommand() as MySqlCommand;
             cmd.CommandText = @"SELECT students.* FROM courses
             JOIN courses_students ON (courses.id = courses_students.course_id)
-            JOIN students ON (courses_students.student_id = student.id)
+            JOIN students ON (courses_students.student_id = students.id)
             WHERE courses.id = @CourseId;";
 
             MySqlParameter courseIdParameter = new MySqlParameter();
