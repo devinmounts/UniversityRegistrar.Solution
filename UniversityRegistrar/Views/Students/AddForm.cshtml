@@ -7,12 +7,6 @@
     <input id="student-name" name="name" type="text">
     <label for="student-enrollment">EnrollmentDate</label>
     <input id="student-enrollment" name="enrollment" type="date">
-    <select name="student-course">
-        @foreach(var course in Model)
-        {
-            <option value="@course.Id">@course.Name</option>
-        }
-    </select>
     <button type="submit">Add new Student</button>
 </form>
 <p><a href="/">Back home</a></p>

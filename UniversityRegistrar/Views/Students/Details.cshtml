@@ -12,8 +12,7 @@
   <ul>
     @foreach (var course in @Model["studentCourses"])
     {
-      <li>@course.Name</li>
-    <li>@course.Number</li>
+      <li>@course.Name, @course.Number</li>
     }
   </ul>
 }
@@ -23,7 +22,11 @@
   <select id='course-id' name='course' type='text'>
     @foreach (var course in @Model["allCourses"])
     {
-      <option value='@course.Id'>@course.Name, @course.Number</option>
+        if(!(@Model["studentCourses"].Contains(@course)))
+        {
+            <option value='@course.Id'>@course.Name, @course.Number</option>
+        }
+      
     }
   </select>
   <button type='submit'>Add</button>

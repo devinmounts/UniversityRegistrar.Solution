@@ -22,8 +22,14 @@
   <select id='student' name='student' type='text'>
     @foreach (var student in @Model["allStudents"])
     {
-      <option value='@student.Id'>@student.Name</option>
+        if (!(@Model["courseStudents"].Contains(@student)))
+        {
+            <option value='@student.Id'>@student.Name</option>
+        }
+
+
     }
+        
   </select>
   <button type='submit'>Add</button>
 </form>
