@@ -5,6 +5,9 @@
 
 <h1>University Registrar</h1>
 <h2>Course: @Model["selectedCourse"].Name</h2>
+<form action="/courses/@Model["selectedCourse"].Id/delete" method="post">
+    <button type="submit">Delete Course</button>
+</form>
 <hr />
 @if (@Model["courseStudents"].Count != 0)
 {

@@ -62,5 +62,16 @@ namespace UniversityRegistrar.Controllers
 
             return RedirectToAction("Details", new { id = id });
         }
+
+        [HttpPost("students/{id}/delete")]
+        public ActionResult Delete(int id)
+        {
+            Student.DeleteSingleStudent(id);
+
+            return RedirectToAction("Index");
+        }
+
+
+
     }
 }

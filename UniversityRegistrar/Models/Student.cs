@@ -133,12 +133,12 @@ namespace UniversityRegistrar.Models
             return foundItem;
         }
 
-        public static void DeleteSingleClient(int id)
+        public static void DeleteSingleStudent(int id)
         {
             MySqlConnection conn = DB.Connection();
             conn.Open();
             var cmd = conn.CreateCommand() as MySqlCommand;
-            cmd.CommandText = @"DELETE FROM students WHERE id = " + id + ";";
+            cmd.CommandText = @"DELETE FROM students WHERE id = " + id + "; DELETE FROM courses_students WHERE student_id = " + id + " ;";
 
             cmd.ExecuteNonQuery();
 
@@ -206,5 +206,6 @@ namespace UniversityRegistrar.Models
             }
             return courses;
         }
+
     }
 }

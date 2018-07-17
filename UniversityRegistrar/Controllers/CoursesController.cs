@@ -31,7 +31,7 @@ namespace UniversityRegistrar.Controllers
             return View();
         }
 
-        [HttpGet("courses/{id}")]
+        [HttpGet("/courses/{id}")]
         public ActionResult Details(int id)
         {
             Dictionary<string, object> model = new Dictionary<string, object> { };
@@ -44,7 +44,7 @@ namespace UniversityRegistrar.Controllers
             return View(model);
         }
 
-        [HttpPost("courses/{id}")]
+        [HttpPost("/courses/{id}")]
         public ActionResult AddStudent(int id, string student)
         {
             
@@ -53,6 +53,14 @@ namespace UniversityRegistrar.Controllers
             course.AddStudent(newStudent);
             
             return RedirectToAction("Details", new { id = id });
+        }
+
+        [HttpPost("/courses/{id}/delete")]
+        public ActionResult DeleteCourse(int id)
+        {
+            Course.DeleteCourse(id);
+
+            return RedirectToAction("Index");
         }
     }
 }

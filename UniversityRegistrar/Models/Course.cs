@@ -133,15 +133,19 @@ namespace UniversityRegistrar.Models
             return foundItem;
         }
 
-        public static void DeleteSingleClient(int id)
+        public static void DeleteCourse(int id)
         {
             MySqlConnection conn = DB.Connection();
             conn.Open();
             var cmd = conn.CreateCommand() as MySqlCommand;
-            cmd.CommandText = @"DELETE FROM courses WHERE id = " + id + ";";
+            cmd.CommandText = @"DELETE FROM courses WHERE id = @CourseId; DELETE FROM courses_students WHERE course_id = @CourseId;";
+
+            MySqlParameter studentIdParameter = new MySqlParameter();
+            studentIdParameter.ParameterName = "@CourseId";
+            studentIdParameter.Value = id;
+            cmd.Parameters.Add(studentIdParameter);
 
             cmd.ExecuteNonQuery();
-
             conn.Close();
             if (conn != null)
             {
