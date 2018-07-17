@@ -1,0 +1,18 @@
+﻿@{
+
+}
+
+<h1>University Registrar</h1>
+<hr />
+<h2>Students:</h2>
+@if (Model.Count != 0)
+{
+  <ul>
+    @foreach (var student in Model)
+    {
+      <li><a href='/students/@student.GetId()'>@student.GetDescription()</a></li>
+    }
+  </ul>
+}
+<h4><a href="/student/add">Add new student</a></h4>
+<h4><a href="/">Return home</a></h4>

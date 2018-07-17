@@ -1,0 +1,19 @@
+﻿@{
+
+}
+<h1>Add a new student</h1>
+<form action="/students" method="post">
+    <label for="student-name">Student Name:</label>
+    <input id="student-name" name="student-name" type="text">
+    <label for="student-enrollment">EnrollmentDate</label>
+    <input id="student-enrollment" name="student-enrollment" type="date">
+    <select name="student-course">
+        @foreach(var course in Model)
+        {
+            <select value="@course.Id">@course.Name</select>
+        }
+    </select>
+    <button type="submit">Add new Student</button>
+</form>
+<p><a href="/">Back home</a></p>
+<p><a href="/students">View all students</a></p>

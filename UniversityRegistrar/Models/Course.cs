@@ -10,9 +10,9 @@ namespace UniversityRegistrar.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public int Number { get; set; }
+        public string Number { get; set; }
 
-        public Course(string name, int number, int id = 0)
+        public Course(string name, string number, int id = 0)
         {
             Id = id;
             Name = name;
@@ -65,7 +65,7 @@ namespace UniversityRegistrar.Models
             {
                 int id = rdr.GetInt32(0);
                 string name = rdr.GetString(1);
-                int number = rdr.GetInt32(2);
+                string number = rdr.GetString(2);
                 Course newCourse = new Course(name, number, id);
                 allCourses.Add(newCourse);
             }
@@ -114,13 +114,13 @@ namespace UniversityRegistrar.Models
 
             int courseId = 0;
             string name = string.Empty;
-            int number = 0;
+            string number = string.Empty;
 
             while (rdr.Read())
             {
                 courseId = rdr.GetInt32(0);
                 name = rdr.GetString(1);
-                number = rdr.GetInt32(2);
+                number = rdr.GetString(2);
             }
 
             Course foundItem = new Course(name, number, courseId);

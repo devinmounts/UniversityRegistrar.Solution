@@ -195,7 +195,7 @@ namespace UniversityRegistrar.Models
             {
                 int courseId = rdr.GetInt32(0);
                 string courseName = rdr.GetString(1);
-                int courseNumber = rdr.GetInt32(2);
+                string courseNumber = rdr.GetString(2);
                 Course newCourse = new Course(courseName, courseNumber, courseId);
                 courses.Add(newCourse);
             }

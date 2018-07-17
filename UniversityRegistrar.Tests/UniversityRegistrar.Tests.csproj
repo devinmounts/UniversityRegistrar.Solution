@@ -13,10 +13,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\UniversityRegistrar\UniversityRegistrar.csproj" />
-  </ItemGroup>
-  <ItemGroup>
     <Folder Include="ModelTests\" />
     <Folder Include="ControllerTests\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\UniversityRegistrar\UniversityRegistrar.csproj" />
   </ItemGroup>
 </Project>
